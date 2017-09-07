@@ -1,7 +1,7 @@
 {% if quotes %}
     <ul>
-    {% for quote in quotes %}
-        <li>{{ quote.quote_text }}</li>
+    {% for recept in recepten %}
+        <li>{{ recept.recept_name }}</li>
     {% endfor %}
     </ul>
 {% else %}
