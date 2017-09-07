@@ -1,0 +1,11 @@
+{% if quotes %}
+    <ul>
+    {% for quote in quotes %}
+        <li>{{ quote.quote_text }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No quotes are available.</p>
+{% endif %}
+
+<a href={% url 'add' %}>Add</a>
