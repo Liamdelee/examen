@@ -5,7 +5,7 @@ from mongoengine import *
 connect('test', host='mongodb://localhost/test')
 
 def list_all_recepten(request):
-    recepten = Recept.objects.order_by('recept_name', 'recept_aantalCalorien')
+    recepten = Recept.objects.order_by('recept_name', 'recept_aantalCalorien') #nog naar een list brengen
     context = {'recepten': recepten}
     return render(request, 'quotes/index.html', context)
 
