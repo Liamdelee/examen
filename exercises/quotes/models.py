@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 
-from django.db import models
+from mongoengine import *
 
-class Recept(models.Model):
+class Recept(Document):
     recept_name = models.CharField(max_length=50)
     recept_aantalCalorien = models.CharField(max_length=50)
     recept_ingredienten = models.CharField(max_length=50)
