@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import Recept
+from mongoengine import *
+
+connect('test', host='mongodb://localhost/test')
 
 def list_all_recepten(request):
     recepten = Recept.objects.all()
@@ -21,15 +24,8 @@ def list_all_recepten(request):
 
 def add(request):
     if request.method == 'POST':
-        recept = request.POST.get('recept').title()
-        receptsplit = recept.split(",")
-        recept_name = receptsplit[0]
-        recept_aantalCalorien = receptsplit[1]
-        recept_ingredienten = receptsplit[2]
-        recept_benodigdeTijd = receptsplit[3]
         try:
-            r = Recept(name=recept_name)
-            r.save()
+            recept = Recept(recept_name = "test", recept_aantalCalorien = "test", recept_ingredienten = "test", recept_benodigdeTijd = "test").save()
             return render(request, 'quotes/ok.html', None)
         except:
             return render(request, 'quotes/index.html', None)
